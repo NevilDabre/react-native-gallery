@@ -1,14 +1,15 @@
 import React, { Component, useState, useEffect } from 'react';
-import { Dimensions, Image, TouchableOpacity } from 'react-native'
+import { View, Dimensions, Image, TouchableOpacity } from 'react-native'
 import styled from 'styled-components'
+import { Viewport } from '@skele/components';
+
+const ViewportAwareView = Viewport.Aware(View)
 
 import MainMenuComponent from './MainMenuComponent'
 
 const ImageContainer = styled.View`
   height: ${Dimensions.get('window').height}
 `
-
-let t;
 
 class ImageBackgroundComponent extends Component {
   constructor(props) {
@@ -67,18 +68,23 @@ class ImageBackgroundComponent extends Component {
     clearInterval(t);
   }
 
+  componentWillMount() {
+  }
+
   render() {
     return (
       <ImageContainer>
-        <TouchableOpacity activeOpacity={1} onPress={this._setTotalLikes} onPressIn={this._handleLongPress} onPressOut={this._handleLongPressOut}>
-          <Image style={{ height: this.state.screenDimensions.height, width: this.state.screenDimensions.width }} source={{ uri: this.state.imageInfo.uri }}></Image>
-        </TouchableOpacity>
-          <MainMenuComponent totalLikes={this.state.imageInfo.totalLikes} totalViews={this.state.imageInfo.totalViews} _setTotalLikes={this._setTotalLikes} _setTotalViews={this._setTotalViews} _clearTotalLikes={this._clearTotalLikes} uri={this.state.imageInfo.uri}></MainMenuComponent>         
+        <ViewportAwareView
+          onViewportEnter={() => console.log('enter', this.state.imageInfo.uri)}
+          onViewportLeave={() => console.log('leave', this.state.imageInfo.uri)}>
+          <TouchableOpacity activeOpacity={1} onPress={this._setTotalLikes} onPressIn={this._handleLongPress} onPressOut={this._handleLongPressOut}>
+            <Image style={{ height: this.state.screenDimensions.height, width: this.state.screenDimensions.width }} source={{ uri: this.state.imageInfo.uri }}></Image>
+          </TouchableOpacity>
+        </ViewportAwareView>
+        {/* <MainMenuComponent totalLikes={this.state.imageInfo.totalLikes} totalViews={this.state.imageInfo.totalViews} _setTotalLikes={this._setTotalLikes} _setTotalViews={this._setTotalViews} _clearTotalLikes={this._clearTotalLikes} uri={this.state.imageInfo.uri}></MainMenuComponent> */}
       </ImageContainer >
     )
   }
-
-
 }
 
 export default ImageBackgroundComponent

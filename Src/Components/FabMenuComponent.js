@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Button, Fab, Content } from 'native-base';
 import { FontAwesome } from '@expo/vector-icons';
 import { View, TouchableOpacity, Text } from 'react-native';
-import RNFS from 'react-native-fs';
-import DownloadImageComponent from './DownloadImageComponent.js'
+/* import RNFS from 'react-native-fs'; */
+import DownloadImageComponent from './DownloadImageComponent'
 
 
 
@@ -19,7 +19,7 @@ export default class FabMenu extends Component {
   _handleDownloadImage = () => {
 
     // get a list of files and directories in the main bundle
-    RNFS.readDir(RNFS.DocumentDirectoryPath) // On Android, use "RNFS.DocumentDirectoryPath" (MainBundlePath is not defined)
+/*     RNFS.readDir(RNFS.DocumentDirectoryPath) // On Android, use "RNFS.DocumentDirectoryPath" (MainBundlePath is not defined)
       .then((result) => {
         console.log('GOT RESULT', result);
 
@@ -40,7 +40,7 @@ export default class FabMenu extends Component {
       })
       .catch((err) => {
         console.log(err.message, err.code);
-      });
+      }); */
   }
   render() {
     return (

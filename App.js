@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import ImageScrollViewComponent from './Components/ImageScrollViewComponent.js';
+import ImageScrollViewComponent from './Src/Components/ImageScrollViewComponent.js';
+
+import r from './Src/redux'
+
+
 
 export default class App extends Component {
   render() {

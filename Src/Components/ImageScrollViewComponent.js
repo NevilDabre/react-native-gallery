@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Dimensions } from 'react-native'
 import ImageBackgroundComponent from './ImageBackgroundComponent'
+import MainMenuComponent from './MainMenuComponent'
+
+import { Viewport } from '@skele/components';
 
 class ImageScrollViewComponent extends Component {
     constructor(props) {
@@ -43,9 +46,12 @@ class ImageScrollViewComponent extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
+                <Viewport.Tracker>
                 <ScrollView contentContainerStyle={{ flexGrow: 1 }} pagingEnabled>
                     {this.state.imagesList.map((imageInfo, $index) => <ImageBackgroundComponent key={$index} imageInfo={imageInfo}></ImageBackgroundComponent>)}
                 </ScrollView>
+                </Viewport.Tracker>
+                <MainMenuComponent totalLikes={100} totalViews={100} ></MainMenuComponent>
             </View>
         )
     }
