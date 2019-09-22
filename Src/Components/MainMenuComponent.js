@@ -44,9 +44,9 @@ class MenuComponent extends Component {
                         346
             </Text>
                 </View>
-                <View style={{ width: 50, height: 50, flex: 1, marginLeft: 32, marginTop:15, alignItems: 'center' }}>
+{/*                 <View style={{ width: 50, height: 50, flex: 1, marginLeft: 32, marginTop:15, alignItems: 'center' }}>
                         <FabMenu uri={this.props.uri}></FabMenu>
-                </View>
+                </View> */}
             </View>
         )
     }

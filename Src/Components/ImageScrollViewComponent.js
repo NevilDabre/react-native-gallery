@@ -1,46 +1,14 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Dimensions } from 'react-native'
+import { Viewport } from '@skele/components';
+import { ScrollView, View, Dimensions, Text } from 'react-native'
 import ImageBackgroundComponent from './ImageBackgroundComponent'
 import MainMenuComponent from './MainMenuComponent'
-
-import { Viewport } from '@skele/components';
+import { connect } from 'react-redux'
 
 class ImageScrollViewComponent extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            imagesList: [{
-                id: 1,
-                totalLikes: 0,
-                totalViews: 0,
-                uri: 'https://images.pexels.com/photos/1535162/pexels-photo-1535162.jpeg'
-            }, {
-                id: 2,
-                totalLikes: 0,
-                totalViews: 0,
-                uri: 'https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg'
-            }, {
-                id: 3,
-                totalLikes: 0,
-                totalViews: 0,
-                uri: 'https://images.pexels.com/photos/2486168/pexels-photo-2486168.jpeg'
-            }, {
-                id: 4,
-                totalLikes: 0,
-                totalViews: 0,
-                uri: 'https://images.pexels.com/photos/1624496/pexels-photo-1624496.jpeg'
-            }, {
-                id: 5,
-                totalLikes: 0,
-                totalViews: 0,
-                uri: 'https://images.pexels.com/photos/1433052/pexels-photo-1433052.jpeg'
-            }, {
-                id: 6,
-                totalLikes: 0,
-                totalViews: 0,
-                uri: 'https://images.pexels.com/photos/1723637/pexels-photo-1723637.jpeg'
-            }]
-        };
+    constructor() {
+        super();
+        this.state = {}
     }
 
     render() {
@@ -48,7 +16,7 @@ class ImageScrollViewComponent extends Component {
             <View style={{ flex: 1 }}>
                 <Viewport.Tracker>
                 <ScrollView contentContainerStyle={{ flexGrow: 1 }} pagingEnabled>
-                    {this.state.imagesList.map((imageInfo, $index) => <ImageBackgroundComponent key={$index} imageInfo={imageInfo}></ImageBackgroundComponent>)}
+                    {this.props.imagesList.map((imageInfo, $index) => <ImageBackgroundComponent key={$index} imageInfo={imageInfo}></ImageBackgroundComponent>)}
                 </ScrollView>
                 </Viewport.Tracker>
                 <MainMenuComponent totalLikes={100} totalViews={100} ></MainMenuComponent>
@@ -57,4 +25,22 @@ class ImageScrollViewComponent extends Component {
     }
 }
 
-export default ImageScrollViewComponent
+
+const mapStateToProps = (state)=>{
+    return {
+        imagesList: state.imagesList
+    }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        setLikes: (imageId) =>{
+            dispatch({
+                type: "SET_LIKE",
+                payload: imageId
+            })
+        }
+    }
+}
+
+export default connect(mapStateToProps)(ImageScrollViewComponent)
