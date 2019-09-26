@@ -8,38 +8,26 @@ import { connect } from 'react-redux'
 class ImageScrollViewComponent extends Component {
     constructor() {
         super();
-        this.state = {}
     }
 
     render() {
         return (
             <View style={{ flex: 1 }}>
                 <Viewport.Tracker>
-                <ScrollView contentContainerStyle={{ flexGrow: 1 }} pagingEnabled>
-                    {this.props.imagesList.map((imageInfo, $index) => <ImageBackgroundComponent key={$index} imageInfo={imageInfo}></ImageBackgroundComponent>)}
-                </ScrollView>
+                    <ScrollView contentContainerStyle={{ flexGrow: 1 }} pagingEnabled>
+                        {this.props.imagesList.map((imageInfo, $index) => <ImageBackgroundComponent key={$index} imageInfo={imageInfo}></ImageBackgroundComponent>)}
+                    </ScrollView>
                 </Viewport.Tracker>
-                <MainMenuComponent totalLikes={100} totalViews={100} ></MainMenuComponent>
+                <MainMenuComponent ></MainMenuComponent>
             </View>
         )
     }
 }
 
 
-const mapStateToProps = (state)=>{
+const mapStateToProps = ({ images }) => {
     return {
-        imagesList: state.imagesList
-    }
-}
-
-const mapDispatchToProps = (dispatch) =>{
-    return{
-        setLikes: (imageId) =>{
-            dispatch({
-                type: "SET_LIKE",
-                payload: imageId
-            })
-        }
+        imagesList: images.imageList
     }
 }
 

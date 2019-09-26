@@ -9,6 +9,7 @@
   "dependencies": {
     "@skele/components": "^1.0.0-alpha.40",
     "expo": "^34.0.1",
+    "lodash": "^4.17.15",
     "native-base": "^2.13.7",
     "numeral": "^2.0.6",
     "react": "16.8.3",

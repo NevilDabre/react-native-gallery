@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Text, View } from 'react-native'
 import ImageScrollViewComponent from './Src/Components/ImageScrollViewComponent.js';
 import { Provider } from 'react-redux'
 
