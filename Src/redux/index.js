@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
-import todoApp from './reducers'
+import imageSearchReducers from './reducers'
 
-const store = createStore(todoApp)
+const store = createStore(imageSearchReducers)
 
 export default store

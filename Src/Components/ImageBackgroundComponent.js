@@ -2,6 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import { View, Dimensions, Image, TouchableOpacity, findNodeHandle } from 'react-native'
 import styled from 'styled-components'
 import { Viewport } from '@skele/components';
+import { CHANGE_POINTER } from '../redux/actions/currentImageListPointerAction'
 
 import { ADD_VIEW, ADD_LIKE,CLEAR_LIKES } from '../redux/actions/imageListActions'
 
@@ -42,7 +43,7 @@ class ImageBackgroundComponent extends Component {
       }
     }) */
 
-    this.props.updateLikesOfImage(this.state.imageInfo.id)
+    this.props.updateLikesOfImage(this.state.imageInfo.id);
   }
 
   _setTotalViews = () => {
@@ -84,17 +85,17 @@ class ImageBackgroundComponent extends Component {
     return (
       <ImageContainer ref="imageContainer">
           <TouchableOpacity activeOpacity={1} onPress={this._setTotalLikes} onPressIn={this._handleLongPress} onPressOut={this._handleLongPressOut}>
-{/*           <ViewportAwareView
-          onViewportEnter={() => console.log('Enter', this.props.imageInfo.id)}
+          <ViewportAwareView
+          onViewportEnter={() => console.log('Enter',)}
           onViewportLeave={() => {
-            this.refs.imageView.measureLayout( findNodeHandle(this.refs.imageContainer), ( xPos, yPos, Width, Height ) =>
+            this.refs.imageView.measureLayout( findNodeHandle(this.refs.imageView), ( xPos, yPos, Width, Height ) =>
             {
-               console.log('Image id', this.props.imageInfo.id, this.state.imageInfo.id)
-               console.log('xPos, yPos, Width, Height', xPos, yPos, Width, Height)
+/*                console.log('Image id', this.props.imageInfo, this.state.imageInfo.id)
+               console.log('xPos, yPos, Width, Height', xPos, yPos, Width, Height) */
             });
-          }}> */}
+          }}>
             <Image ref="imageView" style={{ height: this.state.screenDimensions.height, width: this.state.screenDimensions.width }} source={{ uri: this.state.imageInfo.uri }}></Image>
-            {/* </ViewportAwareView> */}
+            </ViewportAwareView>
           </TouchableOpacity>
 
         {/* <MainMenuComponent totalLikes={this.state.imageInfo.totalLikes} totalViews={this.state.imageInfo.totalViews} _setTotalLikes={this._setTotalLikes} _setTotalViews={this._setTotalViews} _clearTotalLikes={this._clearTotalLikes} uri={this.state.imageInfo.uri}></MainMenuComponent> */}
@@ -105,6 +106,14 @@ class ImageBackgroundComponent extends Component {
 
 const mapDispatchToProps = (dispatch) =>{
   return{
+      updateCurrentPointer: (imageInfo) =>{
+        dispatch({
+          type: CHANGE_POINTER,
+          payload: {
+            currentPointer: imageInfo
+          }
+        })
+      },
       updateViewsOfImage: (imageId) =>{
           dispatch({
               type: ADD_VIEW,

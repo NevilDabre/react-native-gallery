@@ -38,10 +38,10 @@ const initialState = {
 export default function imageListReducer(state = initialState, action) {
     switch (action.type) {
         case ADD_LIKE:
-            console.log('action.payload.totalLikes', state.imageList[_.findIndex(state.imageList, { id:  action.payload.imageId})].totalLikes);
             return Object.assign({}, state, {
                 imageList: state.imageList.map((i) => {
                     if (i.id === action.payload.imageId) {
+                        console.log('Add Like => ', i.totalLikes);
                         return Object.assign({}, i, {
                             totalLikes: i.totalLikes + 1
                         })
@@ -50,7 +50,6 @@ export default function imageListReducer(state = initialState, action) {
                 })
             })
         case ADD_VIEW:
-            console.log('action.payload.id', action.payload.imageId)
             return Object.assign({}, state, {
                 imageList: state.imageList.map((i) => {
                     if (i.id === action.payload.imageId) {
@@ -62,7 +61,6 @@ export default function imageListReducer(state = initialState, action) {
                 })
             })
         case CLEAR_LIKES:
-            console.log('action.payload.id', action.payload.imageId)
             return Object.assign({}, state, {
                 imageList: state.imageList.map((i) => {
                     if (i.id === action.payload.imageId) {
