@@ -40,7 +40,7 @@ export default function imageListReducer(state = initialState, action) {
         case ADD_LIKE:
             return Object.assign({}, state, {
                 imageList: state.imageList.map((i) => {
-                    if (i.id === action.payload.imageId) {
+                    if (i && i.id === action.payload.imageId) {
                         console.log('Add Like => ', i.totalLikes);
                         return Object.assign({}, i, {
                             totalLikes: i.totalLikes + 1
@@ -52,7 +52,7 @@ export default function imageListReducer(state = initialState, action) {
         case ADD_VIEW:
             return Object.assign({}, state, {
                 imageList: state.imageList.map((i) => {
-                    if (i.id === action.payload.imageId) {
+                    if (i && i.id === action.payload.imageId) {
                         return Object.assign({}, i, {
                             totalViews: i.totalViews + 1
                         })
@@ -63,7 +63,7 @@ export default function imageListReducer(state = initialState, action) {
         case CLEAR_LIKES:
             return Object.assign({}, state, {
                 imageList: state.imageList.map((i) => {
-                    if (i.id === action.payload.imageId) {
+                    if (i && i.id === action.payload.imageId) {
                         return Object.assign({}, i, {
                             totalLikes: 0
                         })

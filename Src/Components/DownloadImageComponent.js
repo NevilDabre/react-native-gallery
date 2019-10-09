@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Button, Fab, Content } from 'native-base';
-import { FontAwesome } from '@expo/vector-icons';
 import { Text } from 'react-native'
 // require the module
 /* var RNFS = require('react-native-fs');

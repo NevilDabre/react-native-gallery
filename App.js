@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native'
-import ImageScrollViewComponent from './Src/Components/ImageScrollViewComponent.js';
+import ImageScrollViewComponent from './Src/Components/ImageScrollView/';
 import { Provider } from 'react-redux'
-
+console.disableYellowBox = true;
 import store from './Src/redux'
 export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-      <ImageScrollViewComponent></ImageScrollViewComponent>
+        <ImageScrollViewComponent></ImageScrollViewComponent>
       </Provider>
     );
   }

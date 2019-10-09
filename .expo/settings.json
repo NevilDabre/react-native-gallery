@@ -1,7 +1,7 @@
 {
+  "urlRandomness": "5t-mhy",
   "hostType": "lan",
   "lanType": "ip",
   "dev": true,
-  "minify": false,
-  "urlRandomness": "it-7x5"
+  "minify": false
 }

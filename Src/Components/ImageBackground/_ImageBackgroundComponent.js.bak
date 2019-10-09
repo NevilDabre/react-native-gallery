@@ -1,16 +1,15 @@
 import React, { Component, useState, useEffect } from 'react';
-import { View, Dimensions, Image, TouchableOpacity, findNodeHandle } from 'react-native'
 import styled from 'styled-components'
 import { Viewport } from '@skele/components';
-import { CHANGE_POINTER } from '../redux/actions/currentImageListPointerAction'
+import { CHANGE_POINTER } from '../../redux/actions/currentImageListPointerAction'
 
-import { ADD_VIEW, ADD_LIKE,CLEAR_LIKES } from '../redux/actions/imageListActions'
+import { ADD_VIEW, ADD_LIKE,CLEAR_LIKES } from '../../redux/actions/imageListActions'
 
 import { connect } from 'react-redux'
 
 const ViewportAwareView = Viewport.Aware(View)
 
-import MainMenuComponent from './MainMenuComponent'
+//import MainMenuComponent from './MainMenu/MainMenuComponent'
 
 const ImageContainer = styled.View`
   height: ${Dimensions.get('window').height}
@@ -76,9 +75,6 @@ class ImageBackgroundComponent extends Component {
 
   _handleLongPressOut = () => {
     clearInterval(t);
-  }
-
-  componentDidMount() {
   }
 
   render() {
