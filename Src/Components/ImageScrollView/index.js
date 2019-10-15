@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
 import ImageScrollView from './_ImageScrollView.container'
-import { mapStateToProps } from './_ImageScrollView.redux'
+import { mapStateToProps, mapDispatchToProps } from './_ImageScrollView.redux'
 
-export default connect(mapStateToProps)(ImageScrollView)
+export default connect(mapStateToProps, mapDispatchToProps)(ImageScrollView)

@@ -28,8 +28,10 @@ class MainMenu extends Component {
         })
     }
 
+
+
     render() {
-        return <MainMenuView currentPointer={this.props.currentPointer} _clearTotalLikes={this._clearTotalLikes} _setTotalLikes={this._setTotalLikes} />
+            return <MainMenuView currentPointer={this.props.currentPointer} _clearTotalLikes={this._clearTotalLikes} _setTotalLikes={this._setTotalLikes} />        
     }
 }
 

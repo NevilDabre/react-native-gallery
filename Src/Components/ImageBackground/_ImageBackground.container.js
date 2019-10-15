@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Dimensions } from 'react-native';
 import ImageBackgroundView from './_ImageBackground.view';
 
+
+
+let t;
+
 export default class ImageBackgroundContainer extends Component {
   constructor(props) {
     super(props)
@@ -47,7 +51,7 @@ export default class ImageBackgroundContainer extends Component {
 
   render() {
     return (
-        <ImageBackgroundView imageInfo={this.state.imageInfo} screenDimensions={this.state.screenDimensions} _setTotalLikes={this._setTotalLikes} _handleLongPress={this._handleLongPress}></ImageBackgroundView>
+        <ImageBackgroundView imageInfo={this.state.imageInfo} screenDimensions={this.state.screenDimensions} _setTotalLikes={this._setTotalLikes} _handleLongPress={this._handleLongPress} _handleLongPressOut={this._handleLongPressOut}></ImageBackgroundView>
     ) 
 }
 }

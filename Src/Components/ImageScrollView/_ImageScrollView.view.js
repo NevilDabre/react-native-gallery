@@ -9,7 +9,7 @@ export default function ImageScrollView(props){
     return (
         <View style={{ flex: 1 }}>
             {/* <Viewport.Tracker> */}
-                <ScrollView contentContainerStyle={{ flexGrow: 1 }} scrollEventThrottle={16} pagingEnabled>
+                <ScrollView ref={props.inputRef} contentContainerStyle={{ flexGrow: 1 }} scrollEventThrottle={16} pagingEnabled>
                     {props.imagesList.map((imageInfo, $index) => <ImageBackgroundComponent key={$index} imageInfo={imageInfo}></ImageBackgroundComponent>)}
                 </ScrollView>
     

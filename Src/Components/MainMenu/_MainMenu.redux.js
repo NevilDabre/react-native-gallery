@@ -1,11 +1,12 @@
-import { CHANGE_POINTER } from '../../redux/actions/currentImageListPointerAction'
+import { CHANGE_POINTER, INITIALIZE_POINTER } from '../../redux/actions/currentImageListPointerAction'
 import { ADD_LIKE, CLEAR_LIKES } from '../../redux/actions/imageListActions'
 
-exports.mapStateToProps = ({ currentImagePointer }) => {
+exports.mapStateToProps = ({ images, currentImagePointer }) => {
     return {
         currentPointer: currentImagePointer.currentPointer
     }
 }
+
 
 exports.mapDispatchToProps = (dispatch) => {
     return {
@@ -26,6 +27,5 @@ exports.mapDispatchToProps = (dispatch) => {
                 }
             })
         }
-
     }
 }

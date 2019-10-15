@@ -1,10 +1,10 @@
 {
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "packagerPort": 19001,
+  "packagerPid": 16276,
+  "expoServerNgrokUrl": "https://5t-mhy.anonymous.is.exp.direct",
+  "packagerNgrokUrl": "https://packager.5t-mhy.anonymous.is.exp.direct",
+  "ngrokPid": 7780,
   "devToolsPort": 19002,
-  "expoServerPort": null,
+  "expoServerPort": 19000,
   "webpackServerPort": null
 }

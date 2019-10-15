@@ -1,5 +1,6 @@
 import _ from 'lodash'
-import { CHANGE_POINTER  } from '../actions/currentImageListPointerAction'
+import { CHANGE_POINTER, INITIALIZE_POINTER } from '../actions/currentImageListPointerAction'
+
 
 const initialState = {
     currentPointer: {
@@ -21,6 +22,12 @@ export default function imageListReducer(state = initialState, action) {
                     totalViews: totalViews,
                     uri: uri
                 }
+            })
+        case INITIALIZE_POINTER:
+            console.log('state.imageList - - - ->', action.payload.imageInfo)
+
+            return Object.assign({}, state, {
+                currentPointer: action.payload.imageInfo
             })
         default:
             return state;
